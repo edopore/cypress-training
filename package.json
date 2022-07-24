@@ -4,7 +4,8 @@
   "description": "This is a workshop about Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "test": "cypress open",
+    "test:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/edopore/cypress-training/issues"
   },
-  "homepage": "https://github.com/edopore/cypress-training#readme"
+  "homepage": "https://github.com/edopore/cypress-training#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
