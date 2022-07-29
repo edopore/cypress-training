@@ -11,19 +11,12 @@ describe("Buy a t-shirt", () => {
     cy.get("#email").type("aperdomobo@gmail.com");
     cy.get("#passwd").type("WorkshopProtractor");
 
-    // Debes completar la prueba ...
-    // Step 8
     cy.get("#SubmitLogin").click();
-    // Step 9
     cy.get("[name='processAddress']").click();
-    // Step 10
-    cy.get("#uniform-cgv").click();
-    // Step 11
+    cy.get("#cgv").click();
     cy.get("[name='processCarrier']").click();
-    // Step 12
     cy.get(".bankwire").click();
-    // Step 13
-    cy.get("[type='submit'] > span > .icon-chevron-right").click();
+    cy.get("#cart_navigation > [type='submit']").click();
 
     cy.get("#center_column > div > p > strong").should(
         "have.text",

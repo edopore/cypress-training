@@ -9,10 +9,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       config.defaultCommandTimeout = 20000
       config.responseTimeout = 20000
-      // modify config values examples
-      // config.defaultCommandTimeout = 10000
 
-      // IMPORTANT return the updated config object
       return config;
     },
   },
