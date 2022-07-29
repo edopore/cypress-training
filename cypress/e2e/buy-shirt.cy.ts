@@ -12,17 +12,17 @@ describe("Buy a t-shirt", () => {
     cy.get("#passwd").type("WorkshopProtractor");
 
     // Debes completar la prueba ...
-    //Step 8
+    // Step 8
     cy.get("#SubmitLogin").click();
-    //Step 9
+    // Step 9
     cy.get("[name='processAddress']").click();
-    //Step 10
+    // Step 10
     cy.get("#uniform-cgv").click();
-    //Step 11
+    // Step 11
     cy.get("[name='processCarrier']").click();
-    //Step 12
+    // Step 12
     cy.get(".bankwire").click();
-    //Step 13
+    // Step 13
     cy.get("[type='submit'] > span > .icon-chevron-right").click();
 
     cy.get("#center_column > div > p > strong").should(
