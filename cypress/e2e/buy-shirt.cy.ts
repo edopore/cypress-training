@@ -1,10 +1,10 @@
-import { MenuContentPage } from "../page/index";
-import { LoginPage } from "../page/index";
-import { AddressStepPage } from "../page/index";
-import { PaymentStepPage } from "../page/index";
-import { ProductsListPage } from "../page/index";
-import { ShippingStepPage } from "../page/index";
-import { ShopingCartPage } from "../page/index";
+import {MenuContentPage} from "../page/index";
+import {LoginPage} from "../page/index";
+import {AddressStepPage} from "../page/index";
+import {PaymentStepPage} from "../page/index";
+import {ProductsListPage} from "../page/index";
+import {ShippingStepPage} from "../page/index";
+import {ShopingCartPage} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const loginPage = new LoginPage();
@@ -34,8 +34,7 @@ describe("Buy a t-shirt", () => {
 
     paymentStepPage.bankWireclick();
 
-    productsListPage.clickOncheckout();    
+    productsListPage.clickOncheckout();
     productsListPage.checkOrderFinal();
-
   });
 });
