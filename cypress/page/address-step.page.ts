@@ -5,7 +5,7 @@ class AddressStepPage{
         this.address = "[name='processAddress']";
     }
 
-    public addressCheckout(): void{
+    public proceedToCheckout(): void{
         cy.get(this.address).click();
     }
 }

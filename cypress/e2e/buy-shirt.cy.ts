@@ -1,10 +1,15 @@
-import {MenuContentPage} from "../page/index";
-import {LoginPage} from "../page/index";
-import {AddressStepPage} from "../page/index";
-import {PaymentStepPage} from "../page/index";
-import {ProductsListPage} from "../page/index";
-import {ShippingStepPage} from "../page/index";
-import {ShopingCartPage} from "../page/index";
+import {
+  MenuContentPage,
+  LoginPage,
+  AddressStepPage,
+  PaymentStepPage,
+  ProductsListPage,
+  ShippingStepPage,
+  ShopingCartPage,
+} from "../page/index";
+
+const email = "aperdomobo@gmail.com";
+const password = "WorkshopProtractor";
 
 const menuContentPage = new MenuContentPage();
 const loginPage = new LoginPage();
@@ -19,22 +24,20 @@ describe("Buy a t-shirt", () => {
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
 
-    shopingCartPage.addShoppingCart();
-    shopingCartPage.clickButtonContainer();
-    shopingCartPage.toLogin();
+    productsListPage.addToCart();
+    productsListPage.proceedToCheckout();
+    shopingCartPage.proceedToCheckout();
 
-    loginPage.putEmailUser();
-    loginPage.putPasswordUser();
-    loginPage.goToAddressCheckout();
+    loginPage.logIn(email, password);
 
-    addressStepPage.addressCheckout();
+    addressStepPage.proceedToCheckout();
 
     shippingStepPage.checkAgreement();
-    shippingStepPage.goToCarrier();
+    shippingStepPage.proceedToCheckout();
 
     paymentStepPage.bankWireclick();
 
-    productsListPage.clickOncheckout();
-    productsListPage.checkOrderFinal();
+    paymentStepPage.clickOncheckout();
+    paymentStepPage.verifyFinalOrderMessage("have.text", "Your order on My Store is complete.");
   });
 });

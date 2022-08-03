@@ -1,24 +1,17 @@
 class ProductsListPage{
-    private checkPayment: string;
-    private checkOrder : string;
-    private checkText : string;
-    private checkOrderOnStore : string;
+    private addToCartSelector: string;
+    private buttonContainer : string;
 
     constructor(){
-        this.checkPayment = "#cart_navigation > [type='submit']";
-        this.checkOrder = "#center_column > div > p > strong";
-        this.checkText = "have.text";
-        this.checkOrderOnStore = "Your order on My Store is complete.";
-    }
+        this.addToCartSelector = "#center_column a.button.ajax_add_to_cart_button.btn.btn-default";
+        this.buttonContainer = "[style*=' display: block;'] .button-container > a";
 
-    public clickOncheckout():void{
-        cy.get(this.checkPayment).click();
     }
-    public checkOrderFinal():void{
-        cy.get(this.checkOrder).should(
-            this.checkText,
-            this.checkOrderOnStore,
-        );
+    public proceedToCheckout():void{
+        cy.get(this.buttonContainer).click();
+    }
+    public addToCart():void{
+        cy.get(this.addToCartSelector).click();
     }
 }
 export{ProductsListPage}

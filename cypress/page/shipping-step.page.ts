@@ -10,7 +10,7 @@ class ShippingStepPage{
     public checkAgreement():void{
         cy.get(this.checkBoxAgreement).click();
     }
-    public goToCarrier(): void{
+    public proceedToCheckout(): void{
         cy.get(this.goToprocessCarrier).click();
     }
 }
