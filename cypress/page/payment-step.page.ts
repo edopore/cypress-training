@@ -2,19 +2,21 @@ class PaymentStepPage{
     private bankWire: string;
     private checkOrder : string;
     private checkPayment: string;
+    private checkText : string;
     
     constructor(){
         this.bankWire = ".bankwire";
         this.checkOrder = "#center_column > div > p > strong";
         this.checkPayment = "#cart_navigation > [type='submit']";
+        this.checkText = "have.text";
     }
 
     public bankWireclick():void{
       cy.get(this.bankWire).click();
     }
-    public verifyFinalOrderMessage(checkText:string, checkOrderOnStoreMessage:string):void{
+    public verifyFinalOrderMessage(checkOrderOnStoreMessage:string):void{
       cy.get(this.checkOrder).should(
-          checkText,
+          this.checkText,
           checkOrderOnStoreMessage,
       );
     }

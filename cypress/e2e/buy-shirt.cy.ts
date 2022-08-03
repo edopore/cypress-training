@@ -38,6 +38,6 @@ describe("Buy a t-shirt", () => {
     paymentStepPage.bankWireclick();
 
     paymentStepPage.clickOncheckout();
-    paymentStepPage.verifyFinalOrderMessage("have.text", "Your order on My Store is complete.");
+    paymentStepPage.verifyFinalOrderMessage("Your order on My Store is complete.");
   });
 });
