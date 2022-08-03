@@ -1,26 +1,43 @@
+import {
+  MenuContentPage,
+  LoginPage,
+  AddressStepPage,
+  PaymentStepPage,
+  ProductsListPage,
+  ShippingStepPage,
+  ShopingCartPage,
+} from "../page/index";
+
+const email = "aperdomobo@gmail.com";
+const password = "WorkshopProtractor";
+
+const menuContentPage = new MenuContentPage();
+const loginPage = new LoginPage();
+const addressStepPage = new AddressStepPage();
+const paymentStepPage = new PaymentStepPage();
+const productsListPage = new ProductsListPage();
+const shippingStepPage = new ShippingStepPage();
+const shopingCartPage = new ShopingCartPage();
+
 describe("Buy a t-shirt", () => {
-  it("then the t-shirt should be bought", () => {
-    cy.visit("http://automationpractice.com/");
-    cy.get("#block_top_menu > ul > li:nth-child(3) > a").click();
-    cy.get(
-        "#center_column a.button.ajax_add_to_cart_button.btn.btn-default",
-    ).click();
-    cy.get("[style*='display: block;'] .button-container > a").click();
-    cy.get(".cart_navigation span").click();
+  it("then should be bought a t-shirt", () => {
+    menuContentPage.visitMenuContentPage();
+    menuContentPage.goToTShirtMenu();
 
-    cy.get("#email").type("aperdomobo@gmail.com");
-    cy.get("#passwd").type("WorkshopProtractor");
+    productsListPage.addToCart();
+    productsListPage.proceedToCheckout();
+    shopingCartPage.proceedToCheckout();
 
-    cy.get("#SubmitLogin").click();
-    cy.get("[name='processAddress']").click();
-    cy.get("#cgv").click();
-    cy.get("[name='processCarrier']").click();
-    cy.get(".bankwire").click();
-    cy.get("#cart_navigation > [type='submit']").click();
+    loginPage.logIn(email, password);
 
-    cy.get("#center_column > div > p > strong").should(
-        "have.text",
-        "Your order on My Store is complete.",
-    );
+    addressStepPage.proceedToCheckout();
+
+    shippingStepPage.checkAgreement();
+    shippingStepPage.proceedToCheckout();
+
+    paymentStepPage.bankWireclick();
+
+    paymentStepPage.clickOncheckout();
+    paymentStepPage.verifyFinalOrderMessage("Your order on My Store is complete.");
   });
 });
