@@ -7,7 +7,7 @@ class PaymentStepPage{
     constructor(){
         this.bankWire = ".bankwire";
         this.checkOrder = "#center_column > div > p > strong";
-        this.checkPayment = "#cart_navigation > [type='submit']";
+        this.checkPayment = "#cart_navigation button";
         this.checkText = "have.text";
     }
 

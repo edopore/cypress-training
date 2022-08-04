@@ -1,17 +1,13 @@
 class ShopingCartPage{
-    private buttonContainer : string;
-    private goTologin : string;
+
+    private proceedToCheckoutButton : string;
 
     constructor(){
-        this.buttonContainer = "[style*=' display: block;'] .button-container > a";
-        this.goTologin = ".cart_navigation span";
-    }
 
-    public clickButtonContainer():void{
-        cy.get(this.buttonContainer).click();
+        this.proceedToCheckoutButton = ".cart_navigation [title = 'Proceed to checkout']";
     }
     public proceedToCheckout():void{
-        cy.get(this.goTologin).click();
+        cy.get(this.proceedToCheckoutButton).click();
     }
 }
 export{ShopingCartPage}
