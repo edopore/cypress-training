@@ -1,13 +1,13 @@
 class ShopingCartPage{
 
-    private goTologin : string;
+    private proceedToCheckoutButton : string;
 
     constructor(){
 
-        this.goTologin = ".cart_navigation span";
+        this.proceedToCheckoutButton = ".cart_navigation [title = 'Proceed to checkout']";
     }
     public proceedToCheckout():void{
-        cy.get(this.goTologin).click();
+        cy.get(this.proceedToCheckoutButton).click();
     }
 }
 export{ShopingCartPage}

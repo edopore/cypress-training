@@ -4,7 +4,7 @@ class ShippingStepPage{
 
     constructor(){
         this.checkBoxAgreement = "#cgv";
-        this.goToprocessCarrier = ".cart_navigation button";
+        this.goToprocessCarrier = "[name='processCarrier']";
     }
 
     public checkAgreement():void{

@@ -2,7 +2,7 @@ class AddressStepPage{
     private address : string;
 
     constructor(){
-        this.address = ".cart_navigation button";
+        this.address = "[name='processAddress']";
     }
 
     public proceedToCheckout(): void{
